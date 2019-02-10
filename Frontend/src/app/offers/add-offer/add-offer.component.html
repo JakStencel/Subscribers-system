@@ -1,0 +1,61 @@
+<div class="col-md-auto" style="margin:20px auto; position:absolute; left: 15%;"><h2><span class="badge badge-info">Form for adding an offer</span></h2></div>
+
+<div class="container">
+    <form class="form-horizontal" (onSubmit)="addNewOffer()" #offerForm="ngForm">
+
+      <br>
+      <h3>Offer details:</h3>
+      <br>
+  
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="name">Name: </label>
+        <div class="col-sm-10">
+          <input [(ngModel)]="offer.Name" type="text" class="form-control" id="name" name="name" placeholder="enter the offer name">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="bundleOfMinutes">Bundle of minutes: </label>
+        <div class="col-sm-10">
+          <input [(ngModel)]="offer.BundleOfMinutes" type="number" class="form-control" id="bundleOfMinutes" name="bundleOfMinutes" placeholder="enter the bundle of minutes">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="bundleOfTextMessages">Bundle of SMS: </label>
+        <div class="col-sm-10">
+          <input [(ngModel)]="offer.BundleOfTextMessages" type="number" class="form-control" id="bundleOfTextMessages" name="bundleOfTextMessages" placeholder="enter the bundle of text messages">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="pricePerMinute">Price per minute: </label>
+        <div class="col-sm-10">
+          <input [(ngModel)]="offer.PricePerMinute" type="number" class="form-control" id="pricePerMinute" name="pricePerMinute" placeholder="enter the price pre minute">
+        </div>
+      </div>
+
+      <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="pricePerTextMessage">Price per message: </label>
+          <div class="col-sm-10">
+            <input [(ngModel)]="offer.PricePerTextMessage" type="number" class="form-control" id="pricePerTextMessage" name="pricePerTextMessage" placeholder="enter the price pre message">
+          </div>
+      </div>
+
+      <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="priceOfTheOffer">Price of the offer </label>
+          <div class="col-sm-10">
+            <input [(ngModel)]="offer.PriceOfTheOffer" type="number" class="form-control" id="priceOfTheOffer" name="priceOfTheOffer" placeholder="enter the price of the offer">
+          </div>
+      </div>
+    
+      <div class="form-group">
+      <div class="col-sm-12">
+        <button type="submit" id="submitBut"  class="btn btn-dark" 
+              (click)="addNewOffer()" 
+              [disabled]="!(offer.Name && offer.BundleOfMinutes && offer.BundleOfTextMessages && offer.PricePerMinute && offer.PricePerTextMessage && offer.PriceOfTheOffer)">Submit</button>
+      </div>
+      </div>
+
+    </form>
+  </div>

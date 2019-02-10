@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="col col-md-12">
+       <table class="table table-hover table-striped">
+         <thead>
+           <tr>
+             <th colspan="7" style="font-size: 30px;">List of offers</th>
+           </tr>
+           <tr>
+             <th scope="col">Id</th>
+             <th scope="col">Name</th>
+             <th scope="col">Minutes in bundle</th>
+             <th scope="col">SMS in bundle</th>
+             <th scope="col">Price pre minute</th>
+             <th scope="col">Price pre text message</th>
+             <th scope="col">Price of the offer</th>
+           </tr>
+         </thead>
+         <tbody *ngFor="let offer of offers" >
+           <tr>
+             <th scope="row">{{offer.Id}}</th>
+             <td>{{offer.Name}}</td>
+             <td>{{offer.BundleOfMinutes}}</td>
+             <td>{{offer.BundleOfTextMessages}}</td>
+             <td>{{offer.PricePerMinute}}</td>
+             <td>{{offer.PricePerTextMessage}}</td>
+             <td>{{offer.PriceOfTheOffer}}</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+   <div class="row justify-content-md-center">
+     <div class="col-md-auto">
+       <a routerLink="/addOffer" class="btn btn-primary btn-lg">Add an offer</a>
+     </div>
+   </div>
+   
+   </div>
+   
+   

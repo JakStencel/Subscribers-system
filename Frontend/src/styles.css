@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+img{
+    max-height: 200px;
+}
+#cover-caption{
+    width: 100%;
+}
+.container{
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+}

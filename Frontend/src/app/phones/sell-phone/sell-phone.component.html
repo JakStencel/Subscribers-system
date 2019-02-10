@@ -1,0 +1,84 @@
+<div class="col-md-auto" style="margin:20px auto; position:relative; left: 15%;"><h2><span class="badge badge-info">Form for adding an offer</span></h2></div>
+
+<div class="container">
+    <form class="form-horizontal" (onSubmit)="sellPhone(selectedSubscriber.Id, selectedOffer.Id)" #sellPhoneForm="ngForm">
+
+  
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="subscribersList">List of subscribers: </label>
+        <div class="col-sm-10">
+            <select [(ngModel)]="selectedSubscriber" title="Pick a subscriber" class="selectpicker form-control" name="subscribersList">
+                <option *ngFor="let subscriber of subscribers" [ngValue]="subscriber">{{subscriber.Name}} {{subscriber.Surname}}  {{subscriber.Email}}</option>
+            </select>
+        </div>    
+      </div>
+
+      <div class="form-group row">
+          <div *ngIf="selectedSubscriber">
+              <table class="table table-sm table-bordered table-striped">
+                  <thead>
+                      <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Surname</th>
+                        <th scope="col">Date of birth</th>
+                        <th scope="col">Email</th>
+                      </tr>
+                  </thead>
+                <tr>
+                  <td>Id: {{selectedSubscriber.Id}}</td>
+                  <td>Name: {{selectedSubscriber.Name}}</td>
+                  <td>Surname: {{selectedSubscriber.Surname}}</td>
+                  <td>Date of birth: {{selectedSubscriber.DateOfBirth}}</td>
+                  <td>Email: {{selectedSubscriber.Email}}</td>
+                </tr>
+              </table>
+          </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="offersList">List of offers </label>
+        <div class="col-sm-10">
+            <select [(ngModel)]="selectedOffer" title="Pick an offer" class="selectpicker form-control" name="offersList">
+                <option *ngFor="let offer of offers" [ngValue]="offer">{{offer.Name}} Offer cost: {{offer.PriceOfTheOffer}}zl</option>          
+            </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+          <div *ngIf="selectedOffer">
+              <table class="table table-sm table-bordered table-striped">
+                  <thead>
+                      <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Minutes in bundle</th>
+                        <th scope="col">SMS in bundle</th>
+                        <th scope="col">Price pre minute</th>
+                        <th scope="col">Price pre text message</th>
+                        <th scope="col">Price of the offer</th>
+                      </tr>
+                    </thead>
+                <tr>
+                  <td>Id: {{selectedOffer.Id}}</td>
+                  <td>Name: {{selectedOffer.Name}}</td>
+                  <td>Bundle of minutes: {{selectedOffer.BundleOfMinutes}}</td>
+                  <td>Bundle of SMS: {{selectedOffer.BundleOfTextMessages}}</td>
+                  <td>Price per minute: {{selectedOffer.PricePerMinute}}zl</td>
+                  <td>Price per SMS: {{selectedOffer.PricePerTextMessage}}zl</td>
+                  <td>Total price: {{selectedOffer.PriceOfTheOffer}}zl</td>
+                </tr>
+              </table>
+          </div>
+        </div>
+
+
+      <div class="form-group">
+      <div class="col-sm-12">
+          <button type="submit" id="submitBut"  class="btn btn-dark" 
+                  (click)="sellPhone(selectedSubscriber.Id, selectedOffer.Id)" [disabled]="!(selectedOffer && selectedSubscriber)">Submit</button>
+      </div>
+      </div>
+
+    </form>
+  </div>

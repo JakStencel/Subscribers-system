@@ -1,0 +1,36 @@
+ <div class="container">
+ <div class="col col-md-12">
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th colspan="6" style="font-size: 30px;">List of subscribers</th>
+        </tr>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Surname</th>
+          <th scope="col">Date of birth</th>
+          <th scope="col">Email</th>
+          <th scope="col">Invoice</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let subscriber of subscribers" >
+        <tr>
+          <th scope="row">{{subscriber.Id}}</th>
+          <td>{{subscriber.Name}}</td>
+          <td>{{subscriber.Surname}}</td>
+          <td>{{subscriber.DateOfBirth}}</td>
+          <td>{{subscriber.Email}}</td>
+          <td><button type="button" class="btn btn-secondary btn-sm" (click)="generateInvoice(subscriber.Id)">Generate invoice</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<div class="row justify-content-md-center">
+  <div class="col-md-auto">
+    <a routerLink="/addSubscriber" class="btn btn-primary btn-lg">Add Subscriber</a>
+  </div>
+</div>
+
+</div>
+
